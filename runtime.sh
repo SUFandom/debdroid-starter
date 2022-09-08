@@ -73,4 +73,11 @@ case $MENU in
  else
  bash runtime.sh 
  fi 
- 
+ "Virtual")
+ if (dialog --backtitle "Install" --title "Are you sure you want to install : Wine?" --yes-label "Install" --no-label "Cancel" --yesno "Are you sure to install Wine Virtual Packages?" 0 0)
+ then
+ bash install.sh --virtual
+ else
+ bash runtime.sh 
+ fi 
+ esac
