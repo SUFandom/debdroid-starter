@@ -1,0 +1,9 @@
+PRETTY_NAME="Debdroid 1.5 ARM32 by SUFandom"
+NAME="Debian GNU/Linux"
+VERSION_ID="11"
+VERSION="11 (bullseye)"
+VERSION_CODENAME=bullseye
+ID=debian
+HOME_URL="https://www.github.com/SUFandom/debdroid"
+SUPPORT_URL="https://github.com/SUFandom/debdroid/discussions"
+BUG_REPORT_URL="https://github.com/SUFandom/debdroid/issues/"

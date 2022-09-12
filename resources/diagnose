@@ -1,0 +1,150 @@
+#!/bin/bash
+
+if [[ "$1" == "--internet" ]]
+then
+echo "Checking If connected"
+sleep 2
+TMPFILE=$(mktmp /tmp/diag_wlan-XXXXXX)
+trap "rm -rf $TMPFILE" EXIT
+ip route >> $TMPFILE
+if (grep -w wlan0 $TMPFILE)
+then
+echo "You are connected to the Wifi"
+else
+echo "You aren't connected to WLAN network, Please check your android device is connected."
+exit
+fi
+echo "" > $TMPFILE
+echo "Checking if Ping through server is good"
+ping -c 4 google.com >> $TMPFILE
+sleep 10
+if (grep -w "4 received" $TMPFILE)
+then
+echo "All Packets Good, stable internet: True"
+else
+if (grep -w "3 received" $TMPFILE)
+then
+echo "75% of test packet passed through, 25% were missed"
+else
+if (grep -w "2 received" $TMPFILE)
+then
+echo "50% of test packet passed through, 50% were missed"
+else
+if (grep -w "1 received" $TMPFILE)
+then
+echo "25% of test packet passed through, 75% were missed"
+else
+if (grep -w "unknown host" $TMPFILE)
+then
+echo "Could not contact Server, issue is the Router may not have the public ip (if Dynamic DHCP) or it's a cable issue"
+fi
+fi
+fi
+fi
+fi
+exit
+fi
+
+if [[ "$1" == "--performance" ]]
+then
+echo "Checking something"
+if (whereis tracker-miner-fs)
+then
+sudo apt remove tracker-miner-fs -y
+else
+echo "No problems detected, if problem persists, Submit an issue Ticket"
+fi
+
+if [[ "$1" == "--vs-code-not-working" ]]
+then
+echo "Trying Solution 1...."
+code --no-sandbox --enable-crashpad %F
+sleep 10
+while true ; do
+read -p "Did it work? [Y/N]" ans
+case $ans in
+ [Yy]*)
+    cp /usr/lib/diagnose/Visual-Studio.desktop $HOME/Desktop/VSCode.desktop
+    echo "You can now launch VS Code using VSCode on your desktop." ; exit ; break ; exit ;;
+  [Nn]*)
+  echo "Trying Other Options" ; break ;;
+  *)
+  echo ""
+  ;;
+esac
+done
+sleep 3
+echo "Trying Solution No. 2"
+code --no-sandbox --enable-crashpad --user-data-dir $HOME
+sleep 10
+while true ; do
+read -p "Did it work? [Y/n]" answ
+case $answ in
+  [Yy]*)
+  cp /usr/lib/diagnose/Visual-Studio-alt.desktop $HOME/Desktop/VSCode.desktop
+  echo "You can launch VS Code now on Desktop using VSCode on your screen.."
+  break ; exit ;;
+  [Nn]*)
+  echo "Please submit an Issue ticket, so i can fix it"
+  break ; exit ;;
+  *)
+  echo ""
+  ;;
+  esac
+  done
+  exit
+  fi
+
+if [["$1" == "--help"]]
+then
+echo "Diagnose - 2022 By SUFandom"
+echo "Under The Open Source Code Community (Copyleft)"
+echo "This thing is still has big"
+echo "limitations because its backbone, is"
+echo "just under Bash."
+echo ""
+echo "Usage: diagnose [args] "
+echo "      --help"
+echo "            Show help, obviously...."
+echo "      --internet"
+echo "            This tool is trying to connect and"
+echo "            test your connectivity to the net."
+echo ""
+echo "      --performance (Limited Func)"
+echo "            Tries to check performance issues"
+echo "            By checking if Tracker-miner-fs"
+echo "            Is present."
+echo "            BUT! THIS THING ONLY HAS LIMITED"
+echo "            CAPABILITIES, IT WONT SOLVE 95% THE LAG"
+echo "            just submit the problem to issues page"
+echo ""
+echo "      --vs-code-not-working"
+echo "            Tries to fix VS Code when not working."
+exit
+fi
+
+
+echo "Diagnose v. 1.0 - 2022 By SUFandom"
+echo "Under The Open Source Code Community (Copyleft)"
+echo "This thing is still has big"
+echo "limitations because its backbone, is"
+echo "just under Bash."
+echo ""
+echo "Usage: diagnose [args] "
+echo "      --help"
+echo "            Show help, obviously...."
+echo "      --internet"
+echo "            This tool is trying to connect and"
+echo "            test your connectivity to the net."
+echo ""
+echo "      --performance (Limited Func)"
+echo "            Tries to check performance issues"
+echo "            By checking if Tracker-miner-fs"
+echo "            Is present."
+echo "            BUT! THIS THING ONLY HAS LIMITED"
+echo "            CAPABILITIES, IT WONT SOLVE 95% THE LAG"
+echo "            just submit the problem to issues page"
+echo ""
+echo "      --vs-code-not-working"
+echo "            Tries to fix VS Code when not working."
+exit

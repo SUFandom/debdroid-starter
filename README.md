@@ -7,8 +7,10 @@ A script utility to use the [Debdroid](https://github.com/SUFandom/debdroid) Pro
 
 ![deb](https://img.shields.io/badge/-Debian-red?style=flat-square&logo=debian) ![bash](https://img.shields.io/badge/-Bash_5-green?style=flat-square&logo=gnubash)
 
-## Dependencies
+## Dependencies that will be installed after first run
 
+- Neofetch (will be installed in first run)
+- dbus (because X11 and some other services don't work without these )
 - Dialog (will install in startup when not found)
 - dpkg (already in your fs)
 - gdebi (optional but installs default on startup)
@@ -17,7 +19,7 @@ A script utility to use the [Debdroid](https://github.com/SUFandom/debdroid) Pro
 
 ## Getting Started
 
-First, get in to your proot by doing: `proot-distro login debian11-arm32` if installed and then clone this repository, (but first, run `apt install git` to get it)
+First, get in to your debdroid proot by doing: `proot-distro login debian11-arm32` if installed and then clone this repository, (but first, run `apt install git` to get it)
 
 Then cd to this repo and then run `./bootstrap.sh` to start
 

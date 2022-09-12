@@ -1,0 +1,3 @@
+#!/bin/bash
+# Calls Neofetch but using Destiny's Logo
+neofetch --chafa --source /usr/share/image/icon.png
