@@ -4,7 +4,7 @@ if [[ "$1" == "--internet" ]]
 then
 echo "Checking If connected"
 sleep 2
-TMPFILE=$(mktmp /tmp/diag_wlan-XXXXXX)
+TMPFILE=$(mktemp /tmp/diag_wlan-XXXXXX)
 trap "rm -rf $TMPFILE" EXIT
 ip route >> $TMPFILE
 if (grep -w wlan0 $TMPFILE)
@@ -16,7 +16,7 @@ exit
 fi
 echo "" > $TMPFILE
 echo "Checking if Ping through server is good"
-ping -c 4 google.com >> $TMPFILE
+ping -qc 4 google.com >> $TMPFILE
 sleep 10
 if (grep -w "4 received" $TMPFILE)
 then
