@@ -9,6 +9,7 @@ A script utility to use the [Debdroid](https://github.com/SUFandom/debdroid) Pro
 
 ## Dependencies that will be installed after first run
 
+- apt-utils (To make process faster )
 - Neofetch (will be installed in first run)
 - dbus (because X11 and some other services don't work without these )
 - Dialog (will install in startup when not found)
