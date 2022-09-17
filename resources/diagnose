@@ -2,47 +2,8 @@
 
 if [[ "$1" == "--internet" ]]
 then
-echo "Checking If connected"
-sleep 2
-TMPFILE=$(mktemp /tmp/diag_wlan-XXXXXX)
-trap "rm -rf $TMPFILE" EXIT
-ip route >> $TMPFILE
-if (grep -w wlan0 $TMPFILE)
-then
-echo "You are connected to the Wifi"
-else
-echo "You aren't connected to WLAN network, Please check your android device is connected."
-exit
-fi
-echo "" > $TMPFILE
-echo "Checking if Ping through server is good"
-ping -qc 4 google.com >> $TMPFILE
-sleep 10
-if (grep -w "4 received" $TMPFILE)
-then
-echo "All Packets Good, stable internet: True"
-else
-if (grep -w "3 received" $TMPFILE)
-then
-echo "75% of test packet passed through, 25% were missed"
-else
-if (grep -w "2 received" $TMPFILE)
-then
-echo "50% of test packet passed through, 50% were missed"
-else
-if (grep -w "1 received" $TMPFILE)
-then
-echo "25% of test packet passed through, 75% were missed"
-else
-if (grep -w "unknown host" $TMPFILE)
-then
-echo "Could not contact Server, issue is the Router may not have the public ip (if Dynamic DHCP) or it's a cable issue"
-fi
-fi
-fi
-fi
-fi
-exit
+ip address show wlan0 &>/dev/null || { echo "not connected to wifi" ; exit 1 ;}
+ping -qc4 google.com | grep -o '[0-9]*% packet loss'
 fi
 
 if [[ "$1" == "--performance" ]]
