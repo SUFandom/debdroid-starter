@@ -9,8 +9,8 @@ if [ "$EUID" -ne 0 ]
 fi
 clear
 echo "Loading"
-apt update >> /dev/null
-apt install sudo xfce4 xfce4-goodies tigervnc* firefox-esr -y | dialog --programbox 30 65
+apt-get update >> /dev/null
+apt-get install sudo xfce4 xfce4-goodies tigervnc* firefox-esr -y | dialog --programbox 30 65
 if (whereis firefox-esr)
 then
 echo ""
@@ -33,8 +33,8 @@ if [ "$EUID" -ne 0 ]
 fi
 clear
 echo "Loading"
-apt update > /dev/null
-apt install sudo xfce4 xfce4-goodies qtcreator glade tigervnc* firefox-esr -y | dialog --progressbox 30 65
+apt-get update > /dev/null
+apt-get install sudo xfce4 xfce4-goodies qtcreator glade tigervnc* firefox-esr -y | dialog --progressbox 30 65
 echo "Switching to Readline to download asset"
 wget https://github.com/SUFandom/debdroid-gitserver/releases/download/vs-code-1.70/code_1.70.1-1660111763_armhf.deb 
 mkdir $HOME/Desktop
@@ -67,11 +67,11 @@ if [ "$EUID" -ne 0 ]
   then ./runtime.sh --exit-0-uid-noroot-ins
   exit
 fi
-apt install sudo apache2 -y | dialog --progressbox 30 65
+apt-get install sudo apache2 -y | dialog --progressbox 30 65
 echo "Switching to Readline to Download and Install the following: Ngrok"
 sleep 3
 dpkg --add-architecture arm
-curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
+curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && apt-get update && sudo apt install ngrok
 if (whereis apache2)
 then ""
 else 
@@ -85,7 +85,7 @@ if [ "$EUID" -ne 0 ]
   then ./runtime.sh --exit-0-uid-noroot-ins
   exit
 fi
-apt install sudo wine tigervnc* lxde -y | dialog --programbox 30 65
+apt-get install sudo wine tigervnc* lxde -y | dialog --programbox 30 65
 if (whereis wine)
 then 
 echo ""
