@@ -54,6 +54,7 @@ sudo apt remove tracker-miner-fs -y
 else
 echo "No problems detected, if problem persists, Submit an issue Ticket"
 fi
+fi
 
 if [[ "$1" == "--vs-code-not-working" ]]
 then
