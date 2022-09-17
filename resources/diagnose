@@ -95,7 +95,7 @@ case $answ in
   exit
   fi
 
-if [["$1" == "--help"]] || [["$1" == "-h" ]]
+if [["$1" == "--help"]] 
 then
 echo "Diagnose - 2022 By SUFandom"
 echo "Under The Open Source Code Community (Copyleft)"
