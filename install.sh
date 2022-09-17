@@ -18,6 +18,7 @@ else
 bash runtime.sh --exit-1-ins
 fi 
 if (whereis xfce4-session)
+then
 echo ""
 else 
 bash runtime.sh --exit-1-ins
