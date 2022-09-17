@@ -57,27 +57,26 @@ case $MENU in
  bash install.sh --basic
  else 
  bash runtime.sh 
- fi 
- ;;
+ fi  ;;
  "Dev")
  if (dialog --backtitle "Install" --title "Are you sure you want to install: Dev ?" --yes-label "Install" --no-label "Cancel" --yesno "You want to install Dev Packages? Includes Working VS Code, Firefox-esr, Glade, XFCE and Tools" 0 0)
  then
  bash install.sh --dev
  else
  bash runtime.sh 
- fi 
+ fi ;;
  "Web")
  if (dialog --backtitle "Install" --title "Are you sure you want to install: Webserver?" --yes-label "Install" --mo-label "Cancel" --yesno "Are you sure to install Web server Packages?" 0 0)
  then
  bash install.sh --web
  else
  bash runtime.sh 
- fi 
+ fi ;;
  "Virtual")
  if (dialog --backtitle "Install" --title "Are you sure you want to install : Wine?" --yes-label "Install" --no-label "Cancel" --yesno "Are you sure to install Wine Virtual Packages?" 0 0)
  then
  bash install.sh --virtual
  else
  bash runtime.sh 
- fi 
+ fi ;;
  esac
