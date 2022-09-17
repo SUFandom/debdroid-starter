@@ -81,7 +81,7 @@ chmod +x resources/diagnose
 cp resources/diagnose /bin
 mkdir /usr/share/images/
 mkdir /usr/share/images/desktop-base
-tar -xfJ wp/destiny.tar.xz -C /usr/share/images/desktop-base
+tar xfJ wp/destiny.tar.xz -C /usr/share/images/desktop-base
 cp resources/Visual-Studio.desktop $HOME/Desktop/VSCode.desktop
 if (whereis firefox-esr)
 then
