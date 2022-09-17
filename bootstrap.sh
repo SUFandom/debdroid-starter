@@ -5,14 +5,15 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo "Installing Dependencies: Dialog, wget, gdebi, dbus* and others"
+echo "Installing Dependencies: Dialog, wget, gdebi, dbus* and others, may take while depending on these factors: Internet Speed and CPU/RAM Speed"
 # Sending to /dev/null muffles the verbose output 
-apt update > /dev/null
-apt install neofetch -y > /dev/null
-apt install dialog -y > /dev/null
-apt install wget -y > /dev/null
-apt install gdebi -y > /dev/null
-apt install dbus* -y > /dev/null
+apt-get update > /dev/null
+apt-get install apt-utils -y > /dev/null
+apt-get install neofetch -y > /dev/null
+apt-get install dialog -y > /dev/null
+apt-get install wget -y > /dev/null
+apt-get install gdebi -y > /dev/null
+apt-get install dbus* -y > /dev/null
 echo "Doing Additional Work"
 # Prepares something
 echo "Preparing Additional Work"
