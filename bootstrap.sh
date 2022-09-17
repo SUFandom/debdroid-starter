@@ -16,6 +16,7 @@ apt install dbus* -y > /dev/null
 echo "Doing Additional Work"
 # Prepares something
 echo "Preparing Additional Work"
+apt-mark hold tracker-miner-fs 
 chmod +x resources/identify
 cp resources/identify /usr/bin
 mkdir /usr/share/image/
