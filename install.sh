@@ -7,7 +7,10 @@ if [ "$EUID" -ne 0 ]
   then ./runtime.sh --exit-0-uid-noroot-ins
   exit
 fi
-apt install xfce4 xfce4-goodies tigervnc* firefox-esr -y | dialog --programbox 30 65
+clear
+echo "Loading"
+apt update >> /dev/null
+apt install sudo xfce4 xfce4-goodies tigervnc* firefox-esr -y | dialog --programbox 30 65
 if (whereis firefox-esr)
 else 
 bash runtime.sh --exit-1-ins
@@ -24,12 +27,15 @@ if [ "$EUID" -ne 0 ]
   then ./runtime.sh --exit-0-uid-noroot-ins
   exit
 fi
-apt install xfce4 xfce4-goodies glade tigervnc* firefox-esr -y | dialog --progressbox 30 65
+clear
+echo "Loading"
+apt update > /dev/null
+apt install sudo xfce4 xfce4-goodies qtcreator glade tigervnc* firefox-esr -y | dialog --progressbox 30 65
 echo "Switching to Readline to download asset"
 wget https://github.com/SUFandom/debdroid-gitserver/releases/download/vs-code-1.70/code_1.70.1-1660111763_armhf.deb 
 mkdir $HOME/Desktop
 wget https://github.com/SUFandom/debdroid-gitserver/releases/download/vs-code-1.70/Visual.Studio.Code.desktop.txt
-mv Visual.Studio.Code.desktop.txt $HOME/Desktop/Code.desktop
+mv Visual.Studio.Code.desktop.txt $HOME/Desktop/VSCode.desktop
 dpkg -i code_1.70.1-1660111763_armhf.deb | dialog --programbox 30 65
 if (whereis firefox-esr)
 else 
@@ -51,7 +57,7 @@ if [ "$EUID" -ne 0 ]
   then ./runtime.sh --exit-0-uid-noroot-ins
   exit
 fi
-apt install apache2 -y | dialog --progressbox 30 65
+apt install sudo apache2 -y | dialog --progressbox 30 65
 echo "Switching to Readline to Download and Install the following: Ngrok"
 sleep 3
 dpkg --add-architecture arm
@@ -68,7 +74,7 @@ if [ "$EUID" -ne 0 ]
   then ./runtime.sh --exit-0-uid-noroot-ins
   exit
 fi
-apt install wine tigervnc* lxde -y | dialog --programbox 30 65
+apt install sudo wine tigervnc* lxde -y | dialog --programbox 30 65
 if (whereis wine)
 else 
 bash runtime.sh --exit-1-ins
