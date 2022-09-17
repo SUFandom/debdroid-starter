@@ -12,10 +12,13 @@ echo "Loading"
 apt update >> /dev/null
 apt install sudo xfce4 xfce4-goodies tigervnc* firefox-esr -y | dialog --programbox 30 65
 if (whereis firefox-esr)
+then
+echo ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
 if (whereis xfce4-session)
+echo ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
@@ -38,14 +41,20 @@ wget https://github.com/SUFandom/debdroid-gitserver/releases/download/vs-code-1.
 mv Visual.Studio.Code.desktop.txt $HOME/Desktop/VSCode.desktop
 dpkg -i code_1.70.1-1660111763_armhf.deb | dialog --programbox 30 65
 if (whereis firefox-esr)
+then
+echo ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
 if (whereis xfce4-session)
+then 
+echo ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
 if (whereis code)
+then 
+echo ""
 else 
 bash runtime.sh --exit-1-ins 
 fi
@@ -63,6 +72,7 @@ sleep 3
 dpkg --add-architecture arm
 curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
 if (whereis apache2)
+then ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
@@ -76,10 +86,14 @@ if [ "$EUID" -ne 0 ]
 fi
 apt install sudo wine tigervnc* lxde -y | dialog --programbox 30 65
 if (whereis wine)
+then 
+echo ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
 if (whereis lxde)
+then
+echo ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
