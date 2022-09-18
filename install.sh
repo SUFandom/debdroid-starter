@@ -45,6 +45,7 @@ echo ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
+apt clean
 fi
 
 if [[ "$1" == "--dev" ]]
@@ -101,6 +102,7 @@ echo ""
 else 
 bash runtime.sh --exit-1-ins 
 fi
+apt clean
 fi
 
 if [[ "$1" == "--web" ]]
@@ -119,6 +121,7 @@ then ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
+apt clean
 fi
 
 if [[ "$1" == "--virtual" ]]
@@ -140,4 +143,5 @@ echo ""
 else 
 bash runtime.sh --exit-1-ins
 fi 
+apt clean
 fi
