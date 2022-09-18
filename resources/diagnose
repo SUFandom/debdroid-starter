@@ -28,6 +28,7 @@ read -p "Did it work? [Y/N]" ans
 case $ans in
  [Yy]*)
     cp /usr/lib/diagnose/Visual-Studio.desktop $HOME/Desktop/VSCode.desktop
+    chmod 777 $HOME/Desktop/VSCode.desktop
     echo "You can now launch VS Code using VSCode on your desktop." ; exit ; break ; exit ;;
   [Nn]*)
   echo "Trying Other Options" ; break ;;
@@ -45,6 +46,7 @@ read -p "Did it work? [Y/n]" answ
 case $answ in
   [Yy]*)
   cp /usr/lib/diagnose/Visual-Studio-alt.desktop $HOME/Desktop/VSCode.desktop
+  chmod 777 $HOME/Desktop/VSCode.desktop
   echo "You can launch VS Code now on Desktop using VSCode on your screen.."
   break ; exit ;;
   [Nn]*)
@@ -87,7 +89,7 @@ exit
 fi
 
 
-echo "Diagnose v. 1.0 - 2022 By SUFandom"
+echo "Diagnose v. 1.1 - 2022 By SUFandom"
 echo "Under The Open Source Code Community (Copyleft)"
 echo "This thing is still has big"
 echo "limitations because its backbone, is"
