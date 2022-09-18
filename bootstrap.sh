@@ -4,9 +4,9 @@ if [ "$EUID" -ne 0 ]
   then echo "Please log out to your user and then Use Root to continue..."
   exit
 fi
-mkdir /.debdroid-start
-touch /.debdroid-start/keychain
-echo "Debdroid-starter NO SERVICE PACK" > /.debdroid-start/keychain
+mkdir /var/lib/debdroid-start
+touch /var/lib/debdroid-start/keychain
+echo "Debdroid-starter NO SERVICE PACK" > /var/lib/debdroid-start/keychain
 echo "Installing Dependencies: Dialog, wget, gdebi, dbus* and others, may take while depending on these factors: Internet Speed and CPU/RAM Speed"
 # Sending to /dev/null muffles the verbose output 
 apt-get update > /dev/null
