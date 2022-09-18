@@ -4,6 +4,7 @@ if [[ "$1" == "--internet" ]]
 then
 ip address show wlan0 &>/dev/null || { echo "not connected to wifi" ; exit 1 ;}
 ping -qc4 google.com | grep -o '[0-9]*% packet loss'
+exit
 fi
 
 if [[ "$1" == "--performance" ]]
