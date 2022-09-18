@@ -6,6 +6,7 @@ if [ "$EUID" -ne 0 ]
 fi
 mkdir /.debdroid-start
 touch /.debdroid-start/keychain
+echo "Debdroid-starter NO SERVICE PACK" > /.debdroid-start/keychain
 echo "Installing Dependencies: Dialog, wget, gdebi, dbus* and others, may take while depending on these factors: Internet Speed and CPU/RAM Speed"
 # Sending to /dev/null muffles the verbose output 
 apt-get update > /dev/null
